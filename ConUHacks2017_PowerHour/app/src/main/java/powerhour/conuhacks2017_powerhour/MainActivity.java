@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
@@ -28,6 +31,8 @@ public class MainActivity extends Activity implements
     private Player mPlayer;
 
     private static final int REQUEST_CODE = 1337;
+
+    ImageButton imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,24 @@ public class MainActivity extends Activity implements
         AuthenticationRequest request = builder.build();
 
         AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
+        //addListenerOnButton();
+    }
+
+    public void addListenerOnButton() {
+
+        imageButton = (ImageButton) findViewById(R.id.imageButton2);
+
+        imageButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                //mPlayer.playUri(null, "spotify:track:1snNAXmmPXCn0dkF9DaPWw", 0, 0);
+
+            }
+
+        });
+
     }
 
     //the user will be asked to log in to authorize your application’s scopes
@@ -105,8 +128,8 @@ public class MainActivity extends Activity implements
         //add voices for 'game begins', '10 seconds', '3', '2', '1', 'drink'
         //add feature of counter (count down)
         //add log out button
-        
-        mPlayer.playUri(null, "spotify:track:0OY3anAsi7yBJQqmeOPNsg", 0, 0);
+
+        //mPlayer.playUri(null, "spotify:track:1snNAXmmPXCn0dkF9DaPWw", 0, 0);
     }
 
     @Override
