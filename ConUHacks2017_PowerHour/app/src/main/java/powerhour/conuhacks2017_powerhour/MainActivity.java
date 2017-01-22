@@ -33,9 +33,7 @@ public class MainActivity extends Activity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID,
-                AuthenticationResponse.Type.TOKEN,
-                REDIRECT_URI);
+        AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
         //sets the list of scopes that your app needs the user to grant
         builder.setScopes(new String[]{"user-read-private", "streaming"});
         AuthenticationRequest request = builder.build();
@@ -102,8 +100,13 @@ public class MainActivity extends Activity implements
     @Override
     public void onLoggedIn() {
         Log.d("MainActivity", "User logged in");
-
-        mPlayer.playUri(null, "spotify:track:2TpxZ7JUBn3uw46aR7qd6V", 0, 0);
+        //fetch/display a list of songs
+        //add buttons for 'start the game', 'stop', 'pause'
+        //add voices for 'game begins', '10 seconds', '3', '2', '1', 'drink'
+        //add feature of counter (count down)
+        //add log out button
+        
+        mPlayer.playUri(null, "spotify:track:0OY3anAsi7yBJQqmeOPNsg", 0, 0);
     }
 
     @Override
